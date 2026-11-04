@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploradores dos Biomas | Quiz Educativo 6º Ano</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tela Inicial -->
+    <header id="tela-inicio" class="tela ativa">
+        <div class="container">
+            <div class="logo-area">
+                <span class="emoji-grande">🌿🌳🦜</span>
+                <h1>Exploradores dos Biomas</h1>
+                <p class="subtitulo">Aventura pelos Biomas Brasileiros</p>
+            </div>
+            <section class="intro">
+                <p>Olá, explorador(a)! 🧭</p>
+                <p>Teste seus conhecimentos sobre os biomas do Brasil: Amazônia, Cerrado, Caatinga, Mata Atlântica, Pantanal e Pampa.</p>
+                <p class="dica">São 10 perguntas • 3 vidas • Quanto mais acertos, maior a pontuação!</p>
+            </section>
+            <button id="btn-iniciar" class="btn principal">Começar Aventura!</button>
+            <footer class="rodape-inicio">
+                <p>Ciências • 6º Ano do Ensino Fundamental</p>
+            </footer>
+        </div>
+    </header>
+
+    <!-- Tela do Jogo -->
+    <main id="tela-jogo" class="tela">
+        <div class="container">
+            <div class="barra-status">
+                <div class="info-status">
+                    <span id="pontuacao">⭐ 0</span>
+                    <span id="vidas">❤️❤️❤️</span>
+                </div>
+                <div class="progresso">
+                    <span id="contador-pergunta">Pergunta 1 de 10</span>
+                    <div class="barra-progresso">
+                        <div id="preenchimento" class="preenchimento"></div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="area-pergunta" class="card-pergunta">
+                <h2 id="texto-pergunta">Carregando pergunta...</h2>
+                <div id="opcoes" class="opcoes">
+                    <!-- Opções geradas pelo JS -->
+                </div>
+            </section>
+
+            <div id="feedback" class="feedback escondido">
+                <p id="mensagem-feedback"></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Tela Final -->
+    <section id="tela-final" class="tela">
+        <div class="container">
+            <div class="resultado">
+                <span id="emoji-final" class="emoji-grande">🏆</span>
+                <h2 id="titulo-final">Parabéns, Explorador!</h2>
+                <p id="mensagem-final">Você completou a aventura!</p>
+                <div class="pontuacao-final">
+                    <p>Pontuação Final</p>
+                    <span id="pontos-finais">0</span>
+                </div>
+                <p id="desempenho" class="desempenho"></p>
+                <button id="btn-reiniciar" class="btn principal">Jogar Novamente</button>
+            </div>
+            <footer class="rodape-final">
+                <p>Obrigado por explorar os biomas do Brasil! 🇧🇷</p>
+            </footer>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

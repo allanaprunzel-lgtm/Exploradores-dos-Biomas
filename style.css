@@ -1,0 +1,366 @@
+/* ===== Reset e Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 40%, #ffd3b6 100%);
+    min-height: 100vh;
+    color: #2d3436;
+    overflow-x: hidden;
+}
+
+/* ===== Telas ===== */
+.tela {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+    animation: fadeIn 0.4s ease;
+}
+
+.tela.ativa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ===== Tela Inicial ===== */
+.logo-area {
+    margin-bottom: 25px;
+}
+
+.emoji-grande {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #1b5e20;
+    text-shadow: 2px 2px 0 #c8e6c9;
+    margin-bottom: 5px;
+}
+
+.subtitulo {
+    font-size: 1.2rem;
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.intro {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 20px 25px;
+    margin: 25px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border: 3px solid #81c784;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.dica {
+    font-weight: 700;
+    color: #e65100;
+    margin-top: 15px !important;
+}
+
+/* ===== Botões ===== */
+.btn {
+    border: none;
+    border-radius: 50px;
+    padding: 16px 40px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 0 #2e7d32;
+}
+
+.btn.principal {
+    background: linear-gradient(180deg, #66bb6a, #43a047);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.btn.principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0 #2e7d32;
+}
+
+.btn.principal:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #2e7d32;
+}
+
+/* ===== Barra de Status (Jogo) ===== */
+.barra-status {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 2px solid #a5d6a7;
+}
+
+.info-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.progresso {
+    text-align: left;
+}
+
+#contador-pergunta {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.barra-progresso {
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.preenchimento {
+    height: 100%;
+    width: 10%;
+    background: linear-gradient(90deg, #66bb6a, #43a047);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+/* ===== Card da Pergunta ===== */
+.card-pergunta {
+    background: white;
+    border-radius: 24px;
+    padding: 28px 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    border: 4px solid #81c784;
+    margin-bottom: 20px;
+}
+
+#texto-pergunta {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1b5e20;
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.opcao {
+    background: #f1f8e9;
+    border: 3px solid #aed581;
+    border-radius: 16px;
+    padding: 16px 18px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    color: #33691e;
+}
+
+.opcao:hover:not(:disabled) {
+    background: #dcedc8;
+    border-color: #7cb342;
+    transform: scale(1.02);
+}
+
+.opcao:disabled {
+    cursor: default;
+}
+
+.opcao.correta {
+    background: #c8e6c9 !important;
+    border-color: #2e7d32 !important;
+    color: #1b5e20;
+    animation: pulseGreen 0.5s;
+}
+
+.opcao.errada {
+    background: #ffcdd2 !important;
+    border-color: #c62828 !important;
+    color: #b71c1c;
+    animation: shake 0.4s;
+}
+
+@keyframes pulseGreen {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+/* ===== Feedback ===== */
+.feedback {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 15px 20px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 10px;
+}
+
+.feedback.escondido {
+    display: none;
+}
+
+.feedback.acerto {
+    border: 3px solid #43a047;
+    color: #2e7d32;
+}
+
+.feedback.erro {
+    border: 3px solid #e53935;
+    color: #c62828;
+}
+
+/* ===== Tela Final ===== */
+.resultado {
+    background: white;
+    border-radius: 28px;
+    padding: 35px 25px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    border: 5px solid #ffb74d;
+}
+
+#titulo-final {
+    font-size: 1.9rem;
+    color: #e65100;
+    margin: 15px 0 10px;
+}
+
+#mensagem-final {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.pontuacao-final {
+    background: linear-gradient(135deg, #fff8e1, #ffecb3);
+    border-radius: 18px;
+    padding: 18px;
+    margin: 20px 0;
+    border: 3px dashed #ffb300;
+}
+
+.pontuacao-final p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f57c00;
+}
+
+#pontos-finais {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #e65100;
+    display: block;
+}
+
+.desempenho {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 15px 0 25px;
+    color: #2e7d32;
+}
+
+.rodape-inicio,
+.rodape-final {
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 600;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .emoji-grande {
+        font-size: 2.8rem;
+    }
+
+    #texto-pergunta {
+        font-size: 1.15rem;
+    }
+
+    .opcao {
+        font-size: 1rem;
+        padding: 14px 15px;
+    }
+
+    .btn {
+        padding: 14px 30px;
+        font-size: 1.1rem;
+    }
+
+    .info-status {
+        font-size: 1.15rem;
+    }
+
+    #pontos-finais {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 0 5px;
+    }
+
+    .card-pergunta {
+        padding: 20px 15px;
+    }
+}
